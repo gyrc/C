@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+// Hanoi issue algorithm
+
+void move(int i, char p1, char p2)
+{
+    printf("Move NO.%d plate from %c to %c.\n", i, p1, p2);
+}
+
+void hanoi(int n, char a, char b, char c)
+{
+    if( n == 1 )
+    {
+        move(n, a, c);
+        return;
+    }
+    else {
+        hanoi(n-1, a, c, b);
+        move(n, a, c);
+        hanoi(n-1, b, a, c);
+    }
+}
+
+int main()
+{
+    char c1 = 'A';
+    char c2 = 'B';
+    char c3 = 'C';
+    int num = 2;
+    hanoi(num, c1, c2, c3);
+    return 0;
+}
